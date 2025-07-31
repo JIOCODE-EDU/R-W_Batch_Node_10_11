@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table , th , td {
+      border:2px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>User Form Page</h1>
+  <form method="POST" action="./insertUser">
+    <div>
+      <label for="">userid</label>
+      <input type="number" name="userid" id="" required>
+    </div>
+    <div>
+      <label for="">name</label>
+      <input type="text" name="name" id="" required>
+    </div>
+    <div>
+      <label for="">email</label>
+      <input type="email" name="email" id="" required>
+    </div>
+    <div>
+      <label for="">password</label>
+      <input type="password" name="password" id="" required>
+    </div>
+    <div>
+      <button type="submit">submit</button>
+    </div>
+  </form>
+</body>
+
+</html>
