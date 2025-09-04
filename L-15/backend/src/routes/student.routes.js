@@ -4,8 +4,10 @@ import { createStudent , getStudentById , getStudent , updateStudent , deleteStu
 
 const router = express.Router()
 
-Router.post("/" , createStudent)
-Router.get("/" , getStudent)
-Router.get("/:id" , getStudentById)
-Router.put("/:id" , updateStudent)
-Router.delete("/:id" , deleteStudent)
+router.post("/" , createStudent)
+router.get("/" , getStudent)
+router.get("/:id" , getStudentById)
+router.put("/:id" , updateStudent)
+router.delete("/:id" , deleteStudent)
+
+export default router
