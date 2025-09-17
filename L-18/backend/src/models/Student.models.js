@@ -7,5 +7,7 @@ const studentSchema = new mongoose.Schema({
   age:{type:Number , require:true}
 } , {timestamps:true})
 
-export const Student = mongoose.model("Student" , studentSchema)
+const Student = mongoose.model("Student" , studentSchema)
+
+export default Student
 
