@@ -1,11 +1,30 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
+
+  const [email , setEmail] = useState("")
+  const [password , setPassword] = useState("")
+
+  const navigate = useNavigate()
+
+  const handleSubmit  = async(e) => {
+    e.preventDefault()
+    try{
+      const res = await axios.post("http://localhost:5040/auth/login" , {email , password})
+      localStorage.setItem('token' , res.data.token || '')
+      navigate('/profile')
+    }catch(err){
+      alert(err.response?.data?.message || 'Login Failed')
+    }
+  }
+
   return (
     <>
     <div className="head">Login Form</div>
-    <form className="max-w-sm mx-auto mt-16">
+    <form className="max-w-sm mx-auto mt-16" onSubmit={handleSubmit}>
       <div className="mb-5">
         <label
           htmlFor="email"
@@ -19,6 +38,7 @@ const Login = () => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="name@flowbite.com"
           required=""
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="mb-5">
@@ -33,6 +53,7 @@ const Login = () => {
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required=""
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <div className="flex items-start mb-5">

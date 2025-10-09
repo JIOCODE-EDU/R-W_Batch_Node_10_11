@@ -35,7 +35,7 @@ export const login =  async(req , res , next) => {
   })(req , res , next)
 }
 
-export const googleLogin = passport.authenticate('google' , {scope:[profile , email]})
+export const googleLogin = passport.authenticate('google' , /*{scope:[profile , email]} */)
 
 export const googleCallback = (req , res , next) => {
   passport.authenticate('google' , (err , user) => {
