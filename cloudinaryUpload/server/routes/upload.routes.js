@@ -7,9 +7,9 @@ import dotenv from 'dotenv'
 
 const router = express.Router()
 
-// dotenv.config({
-//   path:'./.env'
-// })
+dotenv.config({
+  path:'./.env'
+})
 
 // cloudinary config
 

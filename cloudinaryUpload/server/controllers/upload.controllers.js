@@ -4,6 +4,7 @@ import FileModels from '../models/file.models.js'
 
 const uploadFile = async (req  ,res) => {
   try{
+
     if(!req.file){
       return res.status(400).json({message:"No File Uploaded!!!"})
     }
@@ -11,7 +12,7 @@ const uploadFile = async (req  ,res) => {
     console.log("File" , req.file);
 
     const fileDoc = await FileModels.create({
-      originalName:req.file.originalName,
+      originalName:req.file.originalname,
       url:req.file.path,
       public_id:req.file.filename,
       format:req.file.format || req.file.mimetype,
